@@ -35,7 +35,7 @@ def print_theme_of_the_day():
 
 def print_weather():
     # url_weather = 'https://wttr.in/Norrkoping?format=3'
-    url_weather = 'https://wttr.in/Norrkoping?Q&m0&lang=sv'
+    url_weather = 'https://wttr.in/Norrköping?q&m0&lang=sv'
     try:
         data = requests.get(url_weather)
         weather = data.text
@@ -43,12 +43,10 @@ def print_weather():
         weather = "Hittar ej väder"
     print(weather.strip())
 
-
 print_weather()
 time = datetime.now().strftime("%H:%M")
-print(figlet_format(time, font='doom'))
+print(figlet_format(time, font='doom').strip())
 print(date.today().strftime("%d %b %Y"))
-print('')
-print('Dagens temadagar:')
+print('\033[93m--------------------------------\033[00m')
 print_theme_of_the_day()
 
