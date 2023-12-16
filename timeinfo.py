@@ -25,7 +25,11 @@ def print_theme_of_the_day():
     # Check if the content_div is found
     if content_div:
         center_tag = content_div.find('center')
-        a_tags = center_tag.find_all('a')
+        try:
+            a_tags = center_tag.find_all('a')
+        except:
+            print("En helt vanlig dag.")
+            return
 
         # Process and print the text within each a tag
         for a_tag in a_tags:
