@@ -10,7 +10,7 @@ def print_theme_of_the_day():
     url = "https://temadagar.se/"
 
     # Send a GET request to the URL
-    response = requests.get(url)
+    response = requests.get(url, timeout=2.0)
     # Check if the request was successful (status code 200)
     if response.status_code != 200:
         print("Failed to retrieve the page. Status code:", response.status_code)
@@ -41,7 +41,7 @@ def print_weather():
     # url_weather = 'https://wttr.in/Norrkoping?format=3'
     url_weather = 'https://wttr.in/Norrköping?q&m0&lang=sv'
     try:
-        data = requests.get(url_weather)
+        data = requests.get(url_weather, timeout=2.0)
         weather = data.text
     except:
         weather = "Hittar ej väder"
